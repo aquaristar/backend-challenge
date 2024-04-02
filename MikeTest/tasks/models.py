@@ -9,6 +9,19 @@ TASK_STATUS=(
     ("c", "Completed"),
 )
 
+
+class Label(models.Model):
+    label_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=255, unique=True)
+    owner = models.ForeignKey('auth.User', related_name='labels', on_delete=models.CASCADE)    
+    
+    class Meta:
+        ordering = ["name"]
+
+    def __str__(self):
+        return self.name
+    
+
 class Task(models.Model):
     task_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255)
@@ -18,6 +31,7 @@ class Task(models.Model):
                                    blank=False,
                                    default="o",
                                    help_text="Current status of the task")
+    labels = models.ManyToManyField(Label)
     owner = models.ForeignKey('auth.User', related_name='tasks', on_delete=models.CASCADE)
     
     class Meta:
@@ -25,16 +39,4 @@ class Task(models.Model):
     
     def __str__(self):
         return self.title
-
-
-class Label(models.Model):
-    label_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    owner = models.ForeignKey('auth.User', related_name='labels', on_delete=models.CASCADE)
-    tasks = models.ManyToManyField(Task)
     
-    class Meta:
-        ordering = ["name"]
-
-    def __str__(self):
-        return self.name

@@ -4,7 +4,7 @@ from rest_framework.exceptions import PermissionDenied
 
 class IsOwnerOrReadOnly(permissions.BasePermission):
     """
-    Custom permission to only allow creator of an object to edit it.
+    Custom permission to only allow owner of an object to edit it.
     """
 
     def has_object_permission(self, request, view, obj):
@@ -13,5 +13,5 @@ class IsOwnerOrReadOnly(permissions.BasePermission):
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        # Write permissions are only allowed to the creator of the movie
-        return obj.creator == request.user
+        # Write permissions are only allowed to the owner of the task
+        return obj.owner == request.user
