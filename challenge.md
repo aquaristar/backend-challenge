@@ -1,6 +1,6 @@
 <img width="940" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/a2e29d1d-ed62-41ee-8a01-a8666f90316c"># Michael's Result for AAK Testing Project
 
-Thank you for your checking my testing project in the Backend Developer position at AAK Tele-Science. This coding challenge is designed to assess your skills in developing a Django and Django Rest Framework (DRF) backend. Please follow the instructions below to install this project.
+Thank you for your checking my testing project in the Backend Developer position at AAK Tele-Science. Please follow the instructions below to install this project.
 
 ## Project Description
 
@@ -22,7 +22,7 @@ You are tasked with building a backend for a simple task management system. The 
    python3 -m pip install --upgrade pip
    python3 -m pip install virtualenv
    python3 -m virtualenv venv
-   . venv\Scripts\activate
+   . venv\bin\activate
    python -m pip install -r requirements.txt
    ```
 
