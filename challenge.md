@@ -13,7 +13,7 @@ You are tasked with building a backend for a simple task management system. The 
     - HTTPS:
       `git clone https://github.com/aquaristar/backend-challenge.git`
       
-    - SSH:_(to use SSH set your email in local project config file)
+    - SSH:(to use SSH set your email in local project config file)
       `git clone git@github.com:aquaristar/backend-challenge.git`
 
 2. Install python virtual environment.

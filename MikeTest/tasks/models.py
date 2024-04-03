@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 TASK_STATUS=(
     ("o", "Open"),
     ("i", "In progress"),
