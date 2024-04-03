@@ -1,4 +1,4 @@
-# Michael's Result for AAK Testing Project
+<img width="940" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/a2e29d1d-ed62-41ee-8a01-a8666f90316c"># Michael's Result for AAK Testing Project
 
 Thank you for your checking my testing project in the Backend Developer position at AAK Tele-Science. This coding challenge is designed to assess your skills in developing a Django and Django Rest Framework (DRF) backend. Please follow the instructions below to install this project.
 
@@ -6,62 +6,56 @@ Thank you for your checking my testing project in the Backend Developer position
 
 You are tasked with building a backend for a simple task management system. The application should include at least `Task` and `Label` models, and you need to expose API endpoints for CRUD operations on these models.
 
-## Instructions
+## How to deploy and test
 
-1. Fork this repository to your GitHub account.
+1.  Clone project using HTTPS or SSH.
 
-2. Create a new Django project within your forked repository.
+    - HTTPS:
+      `git clone https://github.com/aquaristar/backend-challenge.git`
+      
+    - SSH:_(to use SSH set your email in local project config file)
+      `git clone git@github.com:aquaristar/backend-challenge.git`
 
-3. Implement a Django app for managing tasks called `tasks`.
+2. Install python virtual environment.
+   ```
+   cd backend-challenge
+   python3 -m pip install --upgrade pip
+   python3 -m pip install virtualenv
+   python3 -m virtualenv venv
+   . venv\Scripts\activate
+   python -m pip install -r requirements.txt
+   ```
 
-4. Create at least two models:
-   - `Task`:  This model should have a title, description, completion status, owner, and a many-to-many relationship to `Label`. 
-   - `Label`: This model should have a name and owner. Add the necessary constraints to avoid duplicate values.
+3. Migrate db and create super-user and staff-user for testing.
+   ```
+   cd ./MikeTest
+   python manage.py makemigrations
+   python manage.py migrate
+   python manage.py createsuperuser
+   ...   
+   python manage.py runserver   
+   ```
+   After the server is started up please open your web browser and login with the super-user in admin page `http://localhost:8000`.
+   And then add another new User with `staff` privillege like following.
+   <img width="897" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/ffa4a7db-4007-4b7b-bb51-38d4bb554f48">
+   
+4. Test api endpoints using web browser or Postman:
+   Open your web browser and login with credentionals what you've just created.
+<img width="892" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/9aef4cd8-6209-47aa-a7d7-e8395445f3b9">
+<img width="616" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/3a642b6b-b014-43c1-ba0f-2556d8c71d64">
 
-5. Implement API endpoints for CRUD operations on both `Task` and `Label` models. Use Django Rest Framework for creating these APIs.
+   - testing of tasks endpoint :  `http://localhost:8000/api/v1/tasks/`
+     <img width="896" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/b023f1a3-0901-4d19-b320-f5a9d5848dc2">
 
-6. Implement user authentication and authorization for the API. Users should only be able to perform CRUD operations on their tasks and labels.
+   - testing of labels endpoint :  `http://localhost:8000/api/v1/labels/`
+     <img width="922" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/1ee69341-c2ec-4eae-ab73-f885f96e3ba0">
 
-> [!TIP]
-> Create 2 users with the `python manage.py shell` command with the `is_staff` flag set to `True` so you can use the built-in admin site to log in. Detail the user's credentials on the `challenge.md` file. 
+   - testing of tasks filter
+     <img width="974" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/bf4c6bd8-351e-45ab-a36e-368e1de3c925">
 
-7. Include clear instructions on how to set up and run your project locally in a file called `challenge.md`.
+   - testing of labels filter
+     <img width="946" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/a4758d23-852c-4517-9d78-1bbb6d015c17">
 
-8. Commit your changes regularly and provide meaningful commit messages.
-
-9. Push your code to your GitHub repository.
-
-## Bonus Points
-
-- Write custom filters for the list view of the `Task` and `Label` models to only show your resources (the ones related to the user that's making the request).
-
-- Write tests for your models and API endpoints.
-
-## Review Criteria
-
-- **Code Quality:**
-  - Readability: Ensure the code is well-organized and follows the PEP 8 style guide.
-  - Modularity: Divide code into modular components for easy understanding and maintenance.
-  - Best Practices: Adhere to Django best practices and guidelines.
-
-- **Functionality:**
-  - Correctness: Ensure the application meets specified requirements and functions as expected.
-  - Completeness: Implement all specified features and API endpoints.
-  - Performance: Considerations for optimizing performance, especially in API endpoints.
-
-- **Documentation:**
-  - Setup Instructions: Document how to set up and run the project locally.
-  - Code Comments: Add comments where necessary to explain complex logic.
-
-- **Bonus Points:**
-  - Creativity: Showcase creativity in bonus features or enhancements.
-  
-## Submission
-
-Once you have completed the challenge, please send us the link to your GitHub repository. Make sure to include any relevant instructions for running the application and any additional notes you'd like to share on the `challenge.md` file.
-
-> [!IMPORTANT]
-> You will have 72 hours to complete this challenge.
-
-Thank you, and good luck!
+   If you test the api endpoints using Postman please refer following screen.
+   <img width="959" alt="image" src="https://github.com/aquaristar/backend-challenge/assets/681512/b6424f99-d6bf-46f1-a212-2c0db669d1bd">
 
